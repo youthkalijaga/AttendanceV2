@@ -33,10 +33,10 @@ C:\Users\khedive\source\repos\AttendanceV2\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\khedive\source\repos\AttendanceV2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\khedive\source\repos\AttendanceV2\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.csproj.AssemblyReference.cache
-C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.Form1.resources
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.Properties.Resources.resources
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.csproj.GenerateResource.cache
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.csproj.CoreCompileInputs.cache
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.csproj.CopyComplete
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.exe
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.pdb
+C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.LoginForm.resources

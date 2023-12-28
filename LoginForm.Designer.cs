@@ -1,6 +1,6 @@
 ﻿namespace AttendanceV2
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             this.label_password = new System.Windows.Forms.Label();
             this.input_email = new System.Windows.Forms.TextBox();
             this.input_password = new System.Windows.Forms.TextBox();
-            this.btn_login = new System.Windows.Forms.Button();
-            this.check_showPass = new System.Windows.Forms.CheckBox();
+            this.Btn_login = new System.Windows.Forms.Button();
+            this.Check_showPass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,50 +81,50 @@
             this.input_email.Location = new System.Drawing.Point(382, 187);
             this.input_email.Name = "input_email";
             this.input_email.Size = new System.Drawing.Size(261, 26);
-            this.input_email.TabIndex = 4;
+            this.input_email.TabIndex = 1;
             // 
             // input_password
             // 
             this.input_password.Location = new System.Drawing.Point(382, 269);
             this.input_password.Name = "input_password";
             this.input_password.Size = new System.Drawing.Size(261, 26);
-            this.input_password.TabIndex = 5;
+            this.input_password.TabIndex = 2;
             // 
-            // btn_login
+            // Btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(460, 375);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(105, 36);
-            this.btn_login.TabIndex = 6;
-            this.btn_login.Text = "Login";
-            this.btn_login.UseVisualStyleBackColor = true;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.Btn_login.Location = new System.Drawing.Point(460, 375);
+            this.Btn_login.Name = "Btn_login";
+            this.Btn_login.Size = new System.Drawing.Size(105, 36);
+            this.Btn_login.TabIndex = 4;
+            this.Btn_login.Text = "Login";
+            this.Btn_login.UseVisualStyleBackColor = true;
+            this.Btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // check_showPass
+            // Check_showPass
             // 
-            this.check_showPass.AutoSize = true;
-            this.check_showPass.Location = new System.Drawing.Point(382, 307);
-            this.check_showPass.Name = "check_showPass";
-            this.check_showPass.Size = new System.Drawing.Size(148, 24);
-            this.check_showPass.TabIndex = 7;
-            this.check_showPass.Text = "Show Password";
-            this.check_showPass.UseVisualStyleBackColor = true;
-            this.check_showPass.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.Check_showPass.AutoSize = true;
+            this.Check_showPass.Location = new System.Drawing.Point(382, 307);
+            this.Check_showPass.Name = "Check_showPass";
+            this.Check_showPass.Size = new System.Drawing.Size(148, 24);
+            this.Check_showPass.TabIndex = 3;
+            this.Check_showPass.Text = "Show Password";
+            this.Check_showPass.UseVisualStyleBackColor = true;
+            this.Check_showPass.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 509);
-            this.Controls.Add(this.check_showPass);
-            this.Controls.Add(this.btn_login);
+            this.Controls.Add(this.Check_showPass);
+            this.Controls.Add(this.Btn_login);
             this.Controls.Add(this.input_password);
             this.Controls.Add(this.input_email);
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.label_email);
             this.Controls.Add(this.label_login);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -140,8 +140,8 @@
         private System.Windows.Forms.TextBox input_email;
         private System.Windows.Forms.TextBox input_password;
         private System.Windows.Forms.Label label_email;
-        private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.CheckBox check_showPass;
+        private System.Windows.Forms.Button Btn_login;
+        private System.Windows.Forms.CheckBox Check_showPass;
     }
 }
 
