@@ -143,7 +143,6 @@
             this.Controls.Add(this.label_hello);
             this.Name = "ParticipantForm";
             this.Text = "ParticipantForm";
-            this.Load += new System.EventHandler(this.ParticipantForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

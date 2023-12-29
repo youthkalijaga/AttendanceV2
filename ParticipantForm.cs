@@ -15,6 +15,13 @@ namespace AttendanceV2
         public ParticipantForm()
         {
             InitializeComponent();
+            InitializeForm();
+        }
+
+        private void InitializeForm()
+        {
+            timer1.Start();
+
         }
 
         private void Btn_attend_Click(object sender, EventArgs e)
@@ -31,11 +38,6 @@ namespace AttendanceV2
         {
             label_currentDate.Text = DateTime.Now.ToLongDateString();
             label_currentTime.Text = DateTime.Now.ToLongTimeString();
-        }
-
-        private void ParticipantForm_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
         }
     }
 }
