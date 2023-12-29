@@ -26,5 +26,16 @@ namespace AttendanceV2
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label_currentDate.Text = DateTime.Now.ToLongDateString();
+            label_currentTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void ParticipantForm_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
