@@ -32,8 +32,8 @@
             this.label_user = new System.Windows.Forms.Label();
             this.label_currentEvent = new System.Windows.Forms.Label();
             this.label_activeEvent = new System.Windows.Forms.Label();
-            this.btn_attend = new System.Windows.Forms.Button();
-            this.btn_logout = new System.Windows.Forms.Button();
+            this.Btn_attend = new System.Windows.Forms.Button();
+            this.Btn_logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_hello
@@ -78,34 +78,34 @@
             this.label_activeEvent.TabIndex = 3;
             this.label_activeEvent.Text = "Matematika Diskrit";
             // 
-            // btn_attend
+            // Btn_attend
             // 
-            this.btn_attend.Location = new System.Drawing.Point(549, 84);
-            this.btn_attend.MinimumSize = new System.Drawing.Size(80, 36);
-            this.btn_attend.Name = "btn_attend";
-            this.btn_attend.Size = new System.Drawing.Size(80, 36);
-            this.btn_attend.TabIndex = 4;
-            this.btn_attend.Text = "Present";
-            this.btn_attend.UseVisualStyleBackColor = true;
-            this.btn_attend.Click += new System.EventHandler(this.btn_attend_Click);
+            this.Btn_attend.Location = new System.Drawing.Point(549, 84);
+            this.Btn_attend.MinimumSize = new System.Drawing.Size(80, 36);
+            this.Btn_attend.Name = "Btn_attend";
+            this.Btn_attend.Size = new System.Drawing.Size(80, 36);
+            this.Btn_attend.TabIndex = 4;
+            this.Btn_attend.Text = "Present";
+            this.Btn_attend.UseVisualStyleBackColor = true;
+            this.Btn_attend.Click += new System.EventHandler(this.Btn_attend_Click);
             // 
-            // btn_logout
+            // Btn_logout
             // 
-            this.btn_logout.Location = new System.Drawing.Point(694, 26);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(79, 33);
-            this.btn_logout.TabIndex = 5;
-            this.btn_logout.Text = "Logout";
-            this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            this.Btn_logout.Location = new System.Drawing.Point(694, 26);
+            this.Btn_logout.Name = "Btn_logout";
+            this.Btn_logout.Size = new System.Drawing.Size(79, 33);
+            this.Btn_logout.TabIndex = 5;
+            this.Btn_logout.Text = "Logout";
+            this.Btn_logout.UseVisualStyleBackColor = true;
+            this.Btn_logout.Click += new System.EventHandler(this.Btn_logout_Click);
             // 
             // ParticipantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_logout);
-            this.Controls.Add(this.btn_attend);
+            this.Controls.Add(this.Btn_logout);
+            this.Controls.Add(this.Btn_attend);
             this.Controls.Add(this.label_activeEvent);
             this.Controls.Add(this.label_currentEvent);
             this.Controls.Add(this.label_user);
@@ -123,7 +123,7 @@
         private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label_currentEvent;
         private System.Windows.Forms.Label label_activeEvent;
-        private System.Windows.Forms.Button btn_attend;
-        private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Button Btn_attend;
+        private System.Windows.Forms.Button Btn_logout;
     }
 }

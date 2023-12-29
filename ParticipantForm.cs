@@ -17,12 +17,12 @@ namespace AttendanceV2
             InitializeComponent();
         }
 
-        private void btn_logout_Click(object sender, EventArgs e)
+        private void Btn_attend_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_attend_Click(object sender, EventArgs e)
+        private void Btn_logout_Click(object sender, EventArgs e)
         {
 
         }

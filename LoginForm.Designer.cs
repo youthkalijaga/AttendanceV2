@@ -98,7 +98,7 @@
             this.Btn_login.TabIndex = 4;
             this.Btn_login.Text = "Login";
             this.Btn_login.UseVisualStyleBackColor = true;
-            this.Btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.Btn_login.Click += new System.EventHandler(this.Btn_login_Click);
             // 
             // Check_showPass
             // 
@@ -109,7 +109,7 @@
             this.Check_showPass.TabIndex = 3;
             this.Check_showPass.Text = "Show Password";
             this.Check_showPass.UseVisualStyleBackColor = true;
-            this.Check_showPass.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.Check_showPass.CheckedChanged += new System.EventHandler(this.Check_showPass_CheckedChanged_1);
             // 
             // LoginForm
             // 

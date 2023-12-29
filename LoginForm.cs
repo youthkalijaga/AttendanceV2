@@ -39,12 +39,7 @@ namespace AttendanceV2
             connection = new MySqlConnection(connectionString);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            input_password.PasswordChar = Check_showPass.Checked ? '\0' : '*';
-        }
-
-        private void btn_login_Click(object sender, EventArgs e)
+        private void Btn_login_Click(object sender, EventArgs e)
         {
             if (input_email.Text == "" || input_password.Text == "")
             {
@@ -111,6 +106,11 @@ namespace AttendanceV2
                     MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void Check_showPass_CheckedChanged_1(object sender, EventArgs e)
+        {
+            input_password.PasswordChar = Check_showPass.Checked ? '\0' : '*';
         }
     }
 }
