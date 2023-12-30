@@ -12,15 +12,24 @@ namespace AttendanceV2
 {
     public partial class ParticipantForm : Form
     {
-        public ParticipantForm()
+        private string participantName;
+        private int participantUserID;
+
+        public ParticipantForm(string name, int userID)
         {
             InitializeComponent();
+            participantName = name;
+            participantUserID = userID;
             InitializeForm();
         }
 
         private void InitializeForm()
         {
+            // Timer to update current date and time
             timer1.Start();
+
+            // Display participant's name
+            label_hello.Text = "Hello, " + participantName + "!";
 
         }
 

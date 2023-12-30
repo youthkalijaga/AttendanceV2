@@ -30,7 +30,7 @@ namespace AttendanceV2
         private void InitializeDatabase()
         {
             server = "127.0.0.1";
-            database = "employee_ms";
+            database = "attendancev2";
             uid = "root";
             password = "";
 
@@ -51,15 +51,31 @@ namespace AttendanceV2
                 {
                     connection.Open();
 
-                    // Retrieve user details including user_role
-                    string query = $"SELECT COUNT(*) FROM users WHERE email = '{input_email.Text}' AND password = '{input_password.Text}'";
+                    // Retrieve user details including user_role and UserID
+                    string query = $"SELECT COUNT(*), UserID FROM users WHERE email = '{input_email.Text}' AND password = '{input_password.Text}'";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    int count = 0;
+                    int userID = 0;
+                    
+                    while (reader.Read())
+                    {
+                        count = Convert.ToInt32(reader[0]);
+                        userID = Convert.ToInt32(reader[1]);
+                    }
+
+                    reader.Close();
 
                     if (count > 0)
                     {
+                        // Retrieve participant's name based on UserID
+                        string nameQuery = $"SELECT Name FROM Participants WHERE UserID = '{userID}'";
+                        MySqlCommand nameCmd = new MySqlCommand(nameQuery, connection);
+                        string participantName = nameCmd.ExecuteScalar()?.ToString();
+
                         // Query user_role after successful login
-                        string roleQuery = $"SELECT user_role FROM users WHERE email = '{input_email.Text}'";
+                        string roleQuery = $"SELECT UserRole FROM users WHERE email = '{input_email.Text}'";
                         MySqlCommand roleCmd = new MySqlCommand(roleQuery, connection);
                         string userRole = roleCmd.ExecuteScalar()?.ToString();
 
@@ -71,19 +87,19 @@ namespace AttendanceV2
                             // Redirect based on user_role using switch-case
                             switch (userRole)
                             {
-                                case "administrator":
+                                case "Admin":
                                     // Redirect to admin-specific functionality or form
                                     AdminForm adminForm = new AdminForm();
                                     adminForm.Show();
                                     break;
-                                case "instructor":
+                                case "Instructor":
                                     // Redirect to instructor-specific functionality or form
                                     InstructorForm instructorForm = new InstructorForm();
                                     instructorForm.Show();
                                     break;
-                                case "participant":
+                                case "Participant":
                                     // Redirect to participant-specific functionality or form
-                                    ParticipantForm participantForm = new ParticipantForm();
+                                    ParticipantForm participantForm = new ParticipantForm(participantName, userID);
                                     participantForm.Show();
                                     break;
                                 default:

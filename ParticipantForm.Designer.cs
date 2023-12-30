@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label_hello = new System.Windows.Forms.Label();
-            this.label_user = new System.Windows.Forms.Label();
             this.label_currentEvent = new System.Windows.Forms.Label();
             this.label_activeEvent = new System.Windows.Forms.Label();
             this.Btn_attend = new System.Windows.Forms.Button();
@@ -44,21 +43,11 @@
             // 
             this.label_hello.AutoSize = true;
             this.label_hello.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hello.Location = new System.Drawing.Point(30, 29);
+            this.label_hello.Location = new System.Drawing.Point(27, 29);
             this.label_hello.Name = "label_hello";
-            this.label_hello.Size = new System.Drawing.Size(61, 25);
+            this.label_hello.Size = new System.Drawing.Size(113, 25);
             this.label_hello.TabIndex = 0;
-            this.label_hello.Text = "Hello,";
-            // 
-            // label_user
-            // 
-            this.label_user.AutoSize = true;
-            this.label_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_user.Location = new System.Drawing.Point(86, 29);
-            this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(53, 25);
-            this.label_user.TabIndex = 1;
-            this.label_user.Text = "User";
+            this.label_hello.Text = "Hello, User!";
             // 
             // label_currentEvent
             // 
@@ -139,7 +128,6 @@
             this.Controls.Add(this.Btn_attend);
             this.Controls.Add(this.label_activeEvent);
             this.Controls.Add(this.label_currentEvent);
-            this.Controls.Add(this.label_user);
             this.Controls.Add(this.label_hello);
             this.Name = "ParticipantForm";
             this.Text = "ParticipantForm";
@@ -151,7 +139,6 @@
         #endregion
 
         private System.Windows.Forms.Label label_hello;
-        private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label_currentEvent;
         private System.Windows.Forms.Label label_activeEvent;
         private System.Windows.Forms.Button Btn_attend;
