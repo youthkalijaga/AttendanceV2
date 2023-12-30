@@ -11,43 +11,43 @@ using System.Windows.Forms;
 
 namespace AttendanceV2
 {
-    public partial class LoginForm : Form
+    public static class DatabaseConnection
     {
-        private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-
-        public LoginForm()
+        public static MySqlConnection GetConnection()
         {
-            InitializeComponent();
-            InitializeDatabase();
-
-            input_password.PasswordChar = '*';
-        }
-
-        private void InitializeDatabase()
-        {
-            server = "127.0.0.1";
-            database = "attendancev2";
-            uid = "root";
-            password = "";
+            string server = "127.0.0.1";
+            string database = "attendancev2";
+            string uid = "root";
+            string password = "";
 
             string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
 
-            connection = new MySqlConnection(connectionString);
+            return new MySqlConnection(connectionString);
+        }
+    }
+
+    public partial class LoginForm : Form
+    {
+        public LoginForm()
+        {
+            InitializeComponent();
+            input_password.PasswordChar = '*';
         }
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
-            if (input_email.Text == "" || input_password.Text == "")
+            string inputEmail = input_email.Text.Trim();
+            string inputPassword = input_password.Text.Trim();
+
+
+            if (string.IsNullOrEmpty(inputEmail) || string.IsNullOrEmpty(inputPassword))
             {
                 MessageBox.Show("Please enter email and password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+            try
             {
-                try
+                using (MySqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
 
@@ -58,7 +58,7 @@ namespace AttendanceV2
 
                     int count = 0;
                     int userID = 0;
-                    
+
                     while (reader.Read())
                     {
                         count = Convert.ToInt32(reader[0]);
@@ -117,11 +117,12 @@ namespace AttendanceV2
                         MessageBox.Show("Invalid email or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void Check_showPass_CheckedChanged_1(object sender, EventArgs e)
@@ -133,4 +134,4 @@ namespace AttendanceV2
 
 
 
-        
+

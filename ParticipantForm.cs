@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,42 @@ namespace AttendanceV2
             // Display participant's name
             label_hello.Text = "Hello, " + participantName + "!";
 
+            // Show current event (if any)
+            ShowCurrentEvent();
+        }
+
+        private void ShowCurrentEvent()
+        {
+            try
+            {
+                // Connect to the database
+                using (MySqlConnection connection = new MySqlConnection("ConnectionString"))
+                {
+                    connection.Open();
+
+                    // Query to get the current event based on date and time
+                    string query = $"SELECT Name FROM Events WHERE StartDateTime <= NOW() AND EndDateTime >= NOW()";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    // Execute the query and get the event name
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        label_currentEvent.Text = "Current Event: " + result.ToString();
+                    }
+                    else
+                    {
+                        label_currentEvent.Text = "No ongoing events.";
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Btn_attend_Click(object sender, EventArgs e)
