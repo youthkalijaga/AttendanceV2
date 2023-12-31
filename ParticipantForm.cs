@@ -16,6 +16,11 @@ namespace AttendanceV2
         private string participantName;
         private int participantUserID;
 
+        private string GetFormattedCurrentDate()
+        {
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
         public ParticipantForm(string name, int userID)
         {
             InitializeComponent();
@@ -36,8 +41,7 @@ namespace AttendanceV2
         {
             try
             {
-                DateTime currentDate = DateTime.Now;
-                string formattedCurrentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                string formattedCurrentDate = GetFormattedCurrentDate();
                 Console.WriteLine("\n Formatted Current Date and Time: " + formattedCurrentDate + "\n");
 
                 using (MySqlConnection connection = DatabaseConnection.GetConnection())
@@ -103,10 +107,10 @@ namespace AttendanceV2
                 {
                     connection.Open();
 
-                    // Check if there is a current active event
-                    string formattedCurrentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    string eventQuery = $"SELECT EventID FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
-                    MySqlCommand eventCmd = new MySqlCommand(eventQuery, connection);
+                    string formattedCurrentDate = GetFormattedCurrentDate();
+
+                    string query = $"SELECT EventID FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
+                    MySqlCommand eventCmd = new MySqlCommand(query, connection);
                     object eventID = eventCmd.ExecuteScalar();
 
                     if (eventID != null)
