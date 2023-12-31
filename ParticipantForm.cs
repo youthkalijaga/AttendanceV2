@@ -22,6 +22,7 @@ namespace AttendanceV2
             participantName = name;
             participantUserID = userID;
             InitializeForm();
+            LoadDataToDataGridView();
         }
 
         private void InitializeForm()
@@ -70,6 +71,36 @@ namespace AttendanceV2
             }
         }
 
+        // barrier
+
+
+        private void LoadDataToDataGridView()
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM events";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    DataGridView_events.DataSource = dataTable;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        // barrier
 
         private void Btn_attend_Click(object sender, EventArgs e)
         {

@@ -37,6 +37,8 @@
             this.label_currentDate = new System.Windows.Forms.Label();
             this.label_currentTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.DataGridView_events = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_events)).BeginInit();
             this.SuspendLayout();
             // 
             // label_hello
@@ -117,11 +119,22 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // DataGridView_events
+            // 
+            this.DataGridView_events.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView_events.Location = new System.Drawing.Point(33, 227);
+            this.DataGridView_events.Name = "DataGridView_events";
+            this.DataGridView_events.RowHeadersWidth = 62;
+            this.DataGridView_events.RowTemplate.Height = 28;
+            this.DataGridView_events.Size = new System.Drawing.Size(801, 479);
+            this.DataGridView_events.TabIndex = 8;
+            // 
             // ParticipantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(869, 741);
+            this.Controls.Add(this.DataGridView_events);
             this.Controls.Add(this.label_currentTime);
             this.Controls.Add(this.label_currentDate);
             this.Controls.Add(this.Btn_logout);
@@ -131,6 +144,7 @@
             this.Controls.Add(this.label_hello);
             this.Name = "ParticipantForm";
             this.Text = "ParticipantForm";
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_events)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +160,6 @@
         private System.Windows.Forms.Label label_currentDate;
         private System.Windows.Forms.Label label_currentTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView DataGridView_events;
     }
 }
