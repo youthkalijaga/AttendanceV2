@@ -11,21 +11,6 @@ using System.Windows.Forms;
 
 namespace AttendanceV2
 {
-    public static class DatabaseConnection
-    {
-        public static MySqlConnection GetConnection()
-        {
-            string server = "127.0.0.1";
-            string database = "attendancev2";
-            string uid = "root";
-            string password = "";
-
-            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
-
-            return new MySqlConnection(connectionString);
-        }
-    }
-
     public partial class LoginForm : Form
     {
         public LoginForm()
@@ -79,26 +64,21 @@ namespace AttendanceV2
                         MySqlCommand roleCmd = new MySqlCommand(roleQuery, connection);
                         string userRole = roleCmd.ExecuteScalar()?.ToString();
 
-                        // Close the connection
                         connection.Close();
 
                         if (userRole != null)
                         {
-                            // Redirect based on user_role using switch-case
                             switch (userRole)
                             {
                                 case "Admin":
-                                    // Redirect to admin-specific functionality or form
                                     AdminForm adminForm = new AdminForm();
                                     adminForm.Show();
                                     break;
                                 case "Instructor":
-                                    // Redirect to instructor-specific functionality or form
                                     InstructorForm instructorForm = new InstructorForm();
                                     instructorForm.Show();
                                     break;
                                 case "Participant":
-                                    // Redirect to participant-specific functionality or form
                                     ParticipantForm participantForm = new ParticipantForm(participantName, userID);
                                     participantForm.Show();
                                     break;
@@ -128,6 +108,20 @@ namespace AttendanceV2
         private void Check_showPass_CheckedChanged_1(object sender, EventArgs e)
         {
             input_password.PasswordChar = Check_showPass.Checked ? '\0' : '*';
+        }
+    }
+    public static class DatabaseConnection
+    {
+        public static MySqlConnection GetConnection()
+        {
+            string server = "127.0.0.1";
+            string database = "attendancev2";
+            string uid = "root";
+            string password = "";
+
+            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
+
+            return new MySqlConnection(connectionString);
         }
     }
 }

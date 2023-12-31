@@ -26,13 +26,8 @@ namespace AttendanceV2
 
         private void InitializeForm()
         {
-            // Timer to update current date and time
             timer1.Start();
-
-            // Display participant's name
             label_hello.Text = "Hello, " + participantName + "!";
-
-            // Show current event (if any)
             ShowCurrentEvent();
         }
 
@@ -40,28 +35,33 @@ namespace AttendanceV2
         {
             try
             {
-                // Connect to the database
-                using (MySqlConnection connection = new MySqlConnection("ConnectionString"))
+                DateTime currentDate = DateTime.Now;
+                string formattedCurrentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                Console.WriteLine("\n Formatted Current Date and Time: " + formattedCurrentDate + "\n");
+
+                using (MySqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
 
-                    // Query to get the current event based on date and time
-                    string query = $"SELECT Name FROM Events WHERE StartDateTime <= NOW() AND EndDateTime >= NOW()";
-                    MySqlCommand command = new MySqlCommand(query, connection);
+                    string query = $"SELECT EventID, Name FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                    // Execute the query and get the event name
-                    object result = command.ExecuteScalar();
-
-                    if (result != null)
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        label_currentEvent.Text = "Current Event: " + result.ToString();
+                        if (reader.Read())
+                        {
+                            label_currentEvent.Text = "Current Event: ";
+                            label_activeEvent.Show();
+                            label_activeEvent.Text = reader["Name"].ToString();
+                            Btn_attend.Show();
+                        }
+                        else
+                        {
+                            label_currentEvent.Text = "Thank you, there is no ongoing event right now :)";
+                            label_activeEvent.Hide();
+                            Btn_attend.Hide();
+                        }
                     }
-                    else
-                    {
-                        label_currentEvent.Text = "No ongoing events.";
-                    }
-
-                    connection.Close();
                 }
             }
             catch (MySqlException ex)
@@ -69,6 +69,7 @@ namespace AttendanceV2
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void Btn_attend_Click(object sender, EventArgs e)
         {

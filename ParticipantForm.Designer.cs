@@ -69,7 +69,7 @@
             this.label_activeEvent.Name = "label_activeEvent";
             this.label_activeEvent.Size = new System.Drawing.Size(250, 30);
             this.label_activeEvent.TabIndex = 3;
-            this.label_activeEvent.Text = "Matematika Diskrit";
+            this.label_activeEvent.Text = "[Default event]";
             // 
             // Btn_attend
             // 
