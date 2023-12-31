@@ -97,7 +97,90 @@ namespace AttendanceV2
 
         private void Btn_attend_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (MySqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
 
+                    // Check if there is a current active event
+                    string formattedCurrentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    string eventQuery = $"SELECT EventID FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
+                    MySqlCommand eventCmd = new MySqlCommand(eventQuery, connection);
+                    object eventID = eventCmd.ExecuteScalar();
+
+                    if (eventID != null)
+                    {
+                        int currentEventID = Convert.ToInt32(eventID);
+
+                        // Check if the user has already attended the current active event
+                        string attendQuery = $"SELECT COUNT(*) FROM Attend WHERE ParticipantID = {participantUserID} AND EventID = {currentEventID}";
+                        MySqlCommand attendCmd = new MySqlCommand(attendQuery, connection);
+                        int attendCount = Convert.ToInt32(attendCmd.ExecuteScalar());
+
+
+                        if (attendCount > 0)
+                        {
+                            MessageBox.Show("You've already attended this event.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            // Check if the event has been held
+                            string eventCompletionQuery = $"SELECT Completed FROM Events WHERE EventID = {currentEventID}";
+                            MySqlCommand eventCompletionCmd = new MySqlCommand(eventCompletionQuery, connection);
+                            object eventCompletion = eventCompletionCmd.ExecuteScalar();
+
+                            if (eventCompletion != null && Convert.ToBoolean(eventCompletion))
+                            {
+                                // Event has been held
+                                InsertAttendRecord(currentEventID, "Tidak hadir");
+                            }
+                            else
+                            {
+                                // Event is ongoing, insert with "Hadir" status
+                                InsertAttendRecord(currentEventID, "Hadir");
+                                LoadDataToDataGridView();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no ongoing event to attend.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void InsertAttendRecord(int eventID, string attendStatus)
+        {
+            try
+            {
+                using (MySqlConnection connection = DatabaseConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    string insertQuery = $"INSERT INTO Attend (ParticipantID, EventID, AttendStatus) VALUES ({participantUserID}, {eventID}, '{attendStatus}')";
+                    MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Attendance recorded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to record attendance.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Btn_logout_Click(object sender, EventArgs e)
