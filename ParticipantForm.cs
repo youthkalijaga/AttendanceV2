@@ -14,6 +14,7 @@ namespace AttendanceV2
     public partial class ParticipantForm : Form
     {
         private string participantName;
+
         private int participantUserID;
 
         private string GetFormattedCurrentDate()
@@ -49,6 +50,7 @@ namespace AttendanceV2
                     connection.Open();
 
                     string query = $"SELECT EventID, Name FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
+
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -84,10 +86,13 @@ namespace AttendanceV2
                     connection.Open();
 
                     string query = $"SELECT e.Name AS 'Event Name', e.StartDateTime AS 'Start Date', e.EndDateTime AS 'End Date', a.AttendStatus AS 'Kehadiran' FROM Events e INNER JOIN Attend a ON e.EventID = a.EventID INNER JOIN Participants p ON a.ParticipantID = p.ParticipantID WHERE p.UserID = {participantUserID}";
+
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
                     DataTable dataTable = new DataTable();
+
                     adapter.Fill(dataTable);
 
                     DataGridView_events.DataSource = dataTable;
@@ -110,16 +115,21 @@ namespace AttendanceV2
                     string formattedCurrentDate = GetFormattedCurrentDate();
 
                     string query = $"SELECT EventID FROM Events WHERE StartDateTime <= '{formattedCurrentDate}' AND EndDateTime >= '{formattedCurrentDate}'";
+
                     MySqlCommand eventCmd = new MySqlCommand(query, connection);
+
                     object eventID = eventCmd.ExecuteScalar();
 
+                    // If there is any ongoing event.
                     if (eventID != null)
                     {
                         int currentEventID = Convert.ToInt32(eventID);
 
                         // Check if the user has already attended the current active event
                         string attendQuery = $"SELECT COUNT(*) FROM Attend WHERE ParticipantID = {participantUserID} AND EventID = {currentEventID}";
+
                         MySqlCommand attendCmd = new MySqlCommand(attendQuery, connection);
+
                         int attendCount = Convert.ToInt32(attendCmd.ExecuteScalar());
 
 
@@ -131,17 +141,17 @@ namespace AttendanceV2
                         {
                             // Check if the event has been held
                             string eventCompletionQuery = $"SELECT Completed FROM Events WHERE EventID = {currentEventID}";
+
                             MySqlCommand eventCompletionCmd = new MySqlCommand(eventCompletionQuery, connection);
+
                             object eventCompletion = eventCompletionCmd.ExecuteScalar();
 
                             if (eventCompletion != null && Convert.ToBoolean(eventCompletion))
                             {
-                                // Event has been held
                                 InsertAttendRecord(currentEventID, "Tidak hadir");
                             }
                             else
                             {
-                                // Event is ongoing, insert with "Hadir" status
                                 InsertAttendRecord(currentEventID, "Hadir");
                                 LoadDataToDataGridView();
                             }
@@ -168,7 +178,9 @@ namespace AttendanceV2
                     connection.Open();
 
                     string insertQuery = $"INSERT INTO Attend (ParticipantID, EventID, AttendStatus) VALUES ({participantUserID}, {eventID}, '{attendStatus}')";
+
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
@@ -189,12 +201,21 @@ namespace AttendanceV2
 
         private void Btn_logout_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             label_currentDate.Text = DateTime.Now.ToLongDateString();
+
             label_currentTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
