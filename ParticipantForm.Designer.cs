@@ -38,6 +38,7 @@
             this.label_currentTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DataGridView_events = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_events)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,19 +122,35 @@
             // 
             // DataGridView_events
             // 
+            this.DataGridView_events.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DataGridView_events.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DataGridView_events.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DataGridView_events.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView_events.Location = new System.Drawing.Point(33, 227);
+            this.DataGridView_events.Location = new System.Drawing.Point(33, 261);
             this.DataGridView_events.Name = "DataGridView_events";
             this.DataGridView_events.RowHeadersWidth = 62;
             this.DataGridView_events.RowTemplate.Height = 28;
-            this.DataGridView_events.Size = new System.Drawing.Size(801, 479);
+            this.DataGridView_events.RowTemplate.ReadOnly = true;
+            this.DataGridView_events.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_events.Size = new System.Drawing.Size(801, 445);
             this.DataGridView_events.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(235, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Event participated history:";
             // 
             // ParticipantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(869, 741);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.DataGridView_events);
             this.Controls.Add(this.label_currentTime);
             this.Controls.Add(this.label_currentDate);
@@ -143,6 +160,7 @@
             this.Controls.Add(this.label_currentEvent);
             this.Controls.Add(this.label_hello);
             this.Name = "ParticipantForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ParticipantForm";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_events)).EndInit();
             this.ResumeLayout(false);
@@ -161,5 +179,6 @@
         private System.Windows.Forms.Label label_currentTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView DataGridView_events;
+        private System.Windows.Forms.Label label1;
     }
 }

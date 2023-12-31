@@ -71,9 +71,6 @@ namespace AttendanceV2
             }
         }
 
-        // barrier
-
-
         private void LoadDataToDataGridView()
         {
             using (MySqlConnection connection = DatabaseConnection.GetConnection())
@@ -82,7 +79,7 @@ namespace AttendanceV2
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM events";
+                    string query = $"SELECT e.Name AS 'Event Name', e.StartDateTime AS 'Start Date', e.EndDateTime AS 'End Date', a.AttendStatus AS 'Kehadiran' FROM Events e INNER JOIN Attend a ON e.EventID = a.EventID INNER JOIN Participants p ON a.ParticipantID = p.ParticipantID WHERE p.UserID = {participantUserID}";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -97,10 +94,6 @@ namespace AttendanceV2
                 }
             }
         }
-
-
-
-        // barrier
 
         private void Btn_attend_Click(object sender, EventArgs e)
         {
