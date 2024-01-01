@@ -80,6 +80,7 @@ namespace AttendanceV2
                                     break;
                                 case "Participant":
                                     ParticipantForm participantForm = new ParticipantForm(participantName, userID);
+                                    this.Hide();
                                     participantForm.Show();
                                     break;
                                 default:
