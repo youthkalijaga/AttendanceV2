@@ -33,6 +33,7 @@ namespace AttendanceV2
         {
             timer1.Start();
             label_hello.Text = "Hello, " + instructorName + "!";
+            label_instructor.Text = instructorName;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,6 +54,11 @@ namespace AttendanceV2
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
             }
+        }
+
+        private void Btn_create_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
