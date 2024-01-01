@@ -76,11 +76,13 @@ namespace AttendanceV2
                             switch (userRole)
                             {
                                 case "Admin":
-                                    AdminForm adminForm = new AdminForm(instructorName, userID);
+                                    AdminForm adminForm = new AdminForm();
+                                    this.Hide();
                                     adminForm.Show();
                                     break;
                                 case "Instructor":
-                                    InstructorForm instructorForm = new InstructorForm();
+                                    InstructorForm instructorForm = new InstructorForm(instructorName, userID);
+                                    this.Hide();
                                     instructorForm.Show();
                                     break;
                                 case "Participant":

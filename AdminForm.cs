@@ -17,11 +17,11 @@ namespace AttendanceV2
 
         private int instructorUserID;
 
-        public AdminForm(string name, int userID)
+        public AdminForm()
         {
             InitializeComponent();
-            instructorName = name;
-            instructorUserID = userID;
+            // instructorName = name;
+            // instructorUserID = userID;
             InitializeForm();
         }
 

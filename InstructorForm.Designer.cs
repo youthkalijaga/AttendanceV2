@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_currentTime = new System.Windows.Forms.Label();
             this.label_currentDate = new System.Windows.Forms.Label();
             this.Btn_logout = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,12 +62,13 @@
             // 
             // Btn_logout
             // 
-            this.Btn_logout.Location = new System.Drawing.Point(36, 25);
+            this.Btn_logout.Location = new System.Drawing.Point(35, 25);
             this.Btn_logout.Name = "Btn_logout";
             this.Btn_logout.Size = new System.Drawing.Size(79, 33);
             this.Btn_logout.TabIndex = 15;
             this.Btn_logout.Text = "Logout";
             this.Btn_logout.UseVisualStyleBackColor = true;
+            this.Btn_logout.Click += new System.EventHandler(this.Btn_logout_Click);
             // 
             // label_hello
             // 
@@ -107,6 +110,10 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // InstructorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -118,7 +125,9 @@
             this.Controls.Add(this.label_hello);
             this.Controls.Add(this.tabControl1);
             this.Name = "InstructorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Attendance Manager (Instructor)";
+            this.Load += new System.EventHandler(this.InstructorForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +143,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
