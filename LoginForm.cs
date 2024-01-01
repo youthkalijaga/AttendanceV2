@@ -55,9 +55,14 @@ namespace AttendanceV2
                     if (count > 0)
                     {
                         // Retrieve participant's name based on UserID
-                        string nameQuery = $"SELECT Name FROM Participants WHERE UserID = '{userID}'";
-                        MySqlCommand nameCmd = new MySqlCommand(nameQuery, connection);
-                        string participantName = nameCmd.ExecuteScalar()?.ToString();
+                        string participantNameQuery = $"SELECT Name FROM Participants WHERE UserID = '{userID}'";
+                        MySqlCommand participantNameCmd = new MySqlCommand(participantNameQuery, connection);
+                        string participantName = participantNameCmd.ExecuteScalar()?.ToString();
+
+                        // Retrieve instructor's name based on UserID
+                        string instructorNameQuery = $"SELECT Name FROM Instructors WHERE UserID = '{userID}'";
+                        MySqlCommand instructorNameCmd = new MySqlCommand(instructorNameQuery, connection);
+                        string instructorName = instructorNameCmd.ExecuteScalar()?.ToString();
 
                         // Query user_role after successful login
                         string roleQuery = $"SELECT UserRole FROM users WHERE email = '{input_email.Text}'";
@@ -71,7 +76,7 @@ namespace AttendanceV2
                             switch (userRole)
                             {
                                 case "Admin":
-                                    AdminForm adminForm = new AdminForm();
+                                    AdminForm adminForm = new AdminForm(instructorName, userID);
                                     adminForm.Show();
                                     break;
                                 case "Instructor":

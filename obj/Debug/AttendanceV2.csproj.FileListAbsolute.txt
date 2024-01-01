@@ -41,3 +41,5 @@ C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.exe
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.pdb
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.ParticipantForm.resources
 C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.LoginForm.resources
+C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.AdminForm.resources
+C:\Users\khedive\source\repos\AttendanceV2\obj\Debug\AttendanceV2.InstructorForm.resources

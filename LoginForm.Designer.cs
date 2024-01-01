@@ -126,7 +126,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Event Attendance Manager";
             this.ResumeLayout(false);
             this.PerformLayout();
 
