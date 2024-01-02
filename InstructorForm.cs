@@ -26,6 +26,8 @@ namespace AttendanceV2
             instructorUserID = GetInstructorID(userID);
             InitializeForm();
             LoadDataToGrid_eventsList();
+            LoadEventNamesToComboBox();
+            LoadDataToGrid_attendanceHistory("");
         }
         private void InstructorForm_Load(object sender, EventArgs e)
         {
@@ -168,5 +170,73 @@ namespace AttendanceV2
                 }
             }
         }
+
+        private void LoadEventNamesToComboBox()
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Name FROM Events WHERE InstructorID = {instructorUserID}";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string eventName = reader["Name"].ToString();
+                        Selection_attendHistory.Items.Add(eventName);
+                    }
+
+                    reader.Close();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void Selection_attendHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedEventName = Selection_attendHistory.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedEventName))
+            {
+                LoadDataToGrid_attendanceHistory(selectedEventName);
+            }
+        }
+
+        private void LoadDataToGrid_attendanceHistory(string eventName)
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = $"SELECT a.ParticipantID AS 'Participant ID', p.Name AS 'Participant Name', a.AttendStatus AS 'Attendance Status' " +
+                                   $"FROM Attend a " +
+                                   $"INNER JOIN Participants p ON a.ParticipantID = p.ParticipantID " +
+                                   $"WHERE a.EventID IN (SELECT EventID FROM Events WHERE Name = '{eventName}')";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                    DataTable dataTable = new DataTable();
+
+                    adapter.Fill(dataTable);
+
+                    Grid_attendanceHistory.DataSource = dataTable;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
     }
 }

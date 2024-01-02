@@ -53,10 +53,17 @@
             this.Grid_eventsList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Grid_attendanceHistory = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Selection_attendHistory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_attendanceHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // label_currentTime
@@ -292,7 +299,7 @@
             this.Grid_eventsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grid_eventsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Grid_eventsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_eventsList.Location = new System.Drawing.Point(0, 56);
+            this.Grid_eventsList.Location = new System.Drawing.Point(0, 58);
             this.Grid_eventsList.Name = "Grid_eventsList";
             this.Grid_eventsList.RowHeadersWidth = 62;
             this.Grid_eventsList.RowTemplate.Height = 28;
@@ -301,6 +308,11 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.Selection_attendHistory);
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.Grid_attendanceHistory);
             this.tabPage4.Location = new System.Drawing.Point(4, 31);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -312,6 +324,58 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Grid_attendanceHistory
+            // 
+            this.Grid_attendanceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_attendanceHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Grid_attendanceHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_attendanceHistory.Location = new System.Drawing.Point(0, 58);
+            this.Grid_attendanceHistory.Name = "Grid_attendanceHistory";
+            this.Grid_attendanceHistory.RowHeadersWidth = 62;
+            this.Grid_attendanceHistory.RowTemplate.Height = 28;
+            this.Grid_attendanceHistory.Size = new System.Drawing.Size(815, 515);
+            this.Grid_attendanceHistory.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(724, 12);
+            this.button2.MinimumSize = new System.Drawing.Size(80, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 35);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Export";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Selection_attendHistory
+            // 
+            this.Selection_attendHistory.FormattingEnabled = true;
+            this.Selection_attendHistory.Location = new System.Drawing.Point(207, 12);
+            this.Selection_attendHistory.Name = "Selection_attendHistory";
+            this.Selection_attendHistory.Size = new System.Drawing.Size(231, 30);
+            this.Selection_attendHistory.TabIndex = 18;
+            this.Selection_attendHistory.SelectedIndexChanged += new System.EventHandler(this.Selection_attendHistory_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(167, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = ":";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Select an event";
             // 
             // InstructorForm
             // 
@@ -332,6 +396,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_attendanceHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +430,10 @@
         private System.Windows.Forms.DataGridView Grid_eventsList;
         private System.Windows.Forms.DateTimePicker TimePicker_start;
         private System.Windows.Forms.DateTimePicker TimePicker_end;
+        private System.Windows.Forms.DataGridView Grid_attendanceHistory;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox Selection_attendHistory;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
