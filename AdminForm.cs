@@ -23,6 +23,8 @@ namespace AttendanceV2
             administratorName = name;
             administratorUserID = userID;
             InitializeForm();
+            LoadRolesToComboBox();
+            LoadDataToGrid_usersList("");
         }
 
         private void InitializeForm()
@@ -128,6 +130,81 @@ namespace AttendanceV2
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void LoadRolesToComboBox()
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT DISTINCT UserRole FROM Users";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string role = reader["UserRole"].ToString();
+                        Selection_roles.Items.Add(role);
+                    }
+
+                    reader.Close();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Selection_roles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRole = Selection_roles.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedRole))
+            {
+                LoadDataToGrid_usersList(selectedRole);
+                Console.WriteLine("Selected Role: " + selectedRole);
+            }
+        }
+
+        private void LoadDataToGrid_usersList(string roles)
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT u.UserID AS 'User ID', u.Email, " +
+                                   "CASE " +
+                                   "WHEN u.UserRole = 'Participant' THEN p.Name " +
+                                   "WHEN u.UserRole = 'Instructor' THEN i.Name " +
+                                   "END AS 'User name' " +
+                                   "FROM Users u " +
+                                   "LEFT JOIN Participants p ON u.UserID = p.UserID " +
+                                   "LEFT JOIN Instructors i ON u.UserID = i.UserID " +
+                                   "WHERE u.UserRole = @roles";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@roles", roles);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                    DataTable dataTable = new DataTable();
+
+                    adapter.Fill(dataTable);
+
+                    Grid_usersList.DataSource = dataTable;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -198,6 +198,7 @@ namespace AttendanceV2
                 }
             }
         }
+
         private void Selection_attendHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedEventName = Selection_attendHistory.SelectedItem?.ToString();

@@ -52,17 +52,20 @@
             this.label_currentEvent = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.Grid_eventsList = new System.Windows.Forms.DataGridView();
+            this.Grid_usersList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Selection_attendHistory = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.Grid_attendanceHistory = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Selection_roles = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_usersList)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_attendanceHistory)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +74,7 @@
             // 
             this.label_currentTime.AutoSize = true;
             this.label_currentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_currentTime.Location = new System.Drawing.Point(560, 58);
+            this.label_currentTime.Location = new System.Drawing.Point(560, 57);
             this.label_currentTime.Name = "label_currentTime";
             this.label_currentTime.Size = new System.Drawing.Size(126, 25);
             this.label_currentTime.TabIndex = 12;
@@ -81,7 +84,7 @@
             // 
             this.label_currentDate.AutoSize = true;
             this.label_currentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_currentDate.Location = new System.Drawing.Point(560, 26);
+            this.label_currentDate.Location = new System.Drawing.Point(560, 25);
             this.label_currentDate.Name = "label_currentDate";
             this.label_currentDate.Size = new System.Drawing.Size(229, 25);
             this.label_currentDate.TabIndex = 11;
@@ -89,7 +92,7 @@
             // 
             // Btn_logout
             // 
-            this.Btn_logout.Location = new System.Drawing.Point(35, 26);
+            this.Btn_logout.Location = new System.Drawing.Point(35, 25);
             this.Btn_logout.Name = "Btn_logout";
             this.Btn_logout.Size = new System.Drawing.Size(79, 33);
             this.Btn_logout.TabIndex = 10;
@@ -101,7 +104,7 @@
             // 
             this.label_hello.AutoSize = true;
             this.label_hello.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hello.Location = new System.Drawing.Point(31, 66);
+            this.label_hello.Location = new System.Drawing.Point(31, 65);
             this.label_hello.Name = "label_hello";
             this.label_hello.Size = new System.Drawing.Size(113, 25);
             this.label_hello.TabIndex = 9;
@@ -282,8 +285,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.Selection_roles);
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.Grid_eventsList);
+            this.tabPage2.Controls.Add(this.Grid_usersList);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -303,17 +309,17 @@
             this.button1.Text = "Export";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Grid_eventsList
+            // Grid_usersList
             // 
-            this.Grid_eventsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Grid_eventsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Grid_eventsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_eventsList.Location = new System.Drawing.Point(0, 58);
-            this.Grid_eventsList.Name = "Grid_eventsList";
-            this.Grid_eventsList.RowHeadersWidth = 62;
-            this.Grid_eventsList.RowTemplate.Height = 28;
-            this.Grid_eventsList.Size = new System.Drawing.Size(815, 515);
-            this.Grid_eventsList.TabIndex = 0;
+            this.Grid_usersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_usersList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Grid_usersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_usersList.Location = new System.Drawing.Point(0, 58);
+            this.Grid_usersList.Name = "Grid_usersList";
+            this.Grid_usersList.RowHeadersWidth = 62;
+            this.Grid_usersList.RowTemplate.Height = 28;
+            this.Grid_usersList.Size = new System.Drawing.Size(815, 515);
+            this.Grid_usersList.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -381,6 +387,35 @@
             this.Grid_attendanceHistory.Size = new System.Drawing.Size(815, 515);
             this.Grid_attendanceHistory.TabIndex = 1;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(167, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 25);
+            this.label11.TabIndex = 23;
+            this.label11.Text = ":";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(14, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 25);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Select role";
+            // 
+            // Selection_roles
+            // 
+            this.Selection_roles.FormattingEnabled = true;
+            this.Selection_roles.Location = new System.Drawing.Point(207, 12);
+            this.Selection_roles.Name = "Selection_roles";
+            this.Selection_roles.Size = new System.Drawing.Size(231, 30);
+            this.Selection_roles.TabIndex = 21;
+            this.Selection_roles.SelectedIndexChanged += new System.EventHandler(this.Selection_roles_SelectedIndexChanged);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -399,7 +434,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_usersList)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_attendanceHistory)).EndInit();
@@ -426,7 +462,7 @@
         private System.Windows.Forms.Label label_currentEvent;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView Grid_eventsList;
+        private System.Windows.Forms.DataGridView Grid_usersList;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -439,5 +475,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox Selection_roles;
     }
 }
