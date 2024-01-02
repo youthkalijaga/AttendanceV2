@@ -13,82 +13,86 @@ namespace AttendanceV2
 {
     public partial class LoginForm : Form
     {
-        private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-
         public LoginForm()
         {
             InitializeComponent();
-            InitializeDatabase();
-
             input_password.PasswordChar = '*';
         }
 
-        private void InitializeDatabase()
+        private void Btn_login_Click(object sender, EventArgs e)
         {
-            server = "127.0.0.1";
-            database = "employee_ms";
-            uid = "root";
-            password = "";
+            string inputEmail = input_email.Text.Trim();
+            string inputPassword = input_password.Text.Trim();
 
-            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
 
-            connection = new MySqlConnection(connectionString);
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            input_password.PasswordChar = Check_showPass.Checked ? '\0' : '*';
-        }
-
-        private void btn_login_Click(object sender, EventArgs e)
-        {
-            if (input_email.Text == "" || input_password.Text == "")
+            if (string.IsNullOrEmpty(inputEmail) || string.IsNullOrEmpty(inputPassword))
             {
                 MessageBox.Show("Please enter email and password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+            try
             {
-                try
+                using (MySqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
 
-                    // Retrieve user details including user_role
-                    string query = $"SELECT COUNT(*) FROM users WHERE email = '{input_email.Text}' AND password = '{input_password.Text}'";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    // Retrieve user details including user_role and UserID
+                    string query = $"SELECT COUNT(*), UserID FROM users WHERE email = '{input_email.Text}' AND password = '{input_password.Text}'";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    int count = 0;
+                    int userID = 0;
+
+                    while (reader.Read())
+                    {
+                        count = Convert.ToInt32(reader[0]);
+                        userID = Convert.ToInt32(reader[1]);
+                    }
+
+                    reader.Close();
 
                     if (count > 0)
                     {
+                        // Retrieve participant's name based on UserID
+                        string participantNameQuery = $"SELECT Name FROM Participants WHERE UserID = '{userID}'";
+                        MySqlCommand participantNameCmd = new MySqlCommand(participantNameQuery, connection);
+                        string participantName = participantNameCmd.ExecuteScalar()?.ToString();
+
+                        // Retrieve instructor's name based on UserID
+                        string instructorNameQuery = $"SELECT Name FROM Instructors WHERE UserID = '{userID}'";
+                        MySqlCommand instructorNameCmd = new MySqlCommand(instructorNameQuery, connection);
+                        string instructorName = instructorNameCmd.ExecuteScalar()?.ToString();
+
+                        // Retrieve administrator's name based on UserID
+                        string administratorNameQuery = $"SELECT Name FROM Administrators WHERE UserID = '{userID}'";
+                        MySqlCommand administratorNameCmd = new MySqlCommand(administratorNameQuery, connection);
+                        string administratorName = administratorNameCmd.ExecuteScalar()?.ToString();
+
                         // Query user_role after successful login
-                        string roleQuery = $"SELECT user_role FROM users WHERE email = '{input_email.Text}'";
+                        string roleQuery = $"SELECT UserRole FROM users WHERE email = '{input_email.Text}'";
                         MySqlCommand roleCmd = new MySqlCommand(roleQuery, connection);
                         string userRole = roleCmd.ExecuteScalar()?.ToString();
 
-                        // Close the connection
                         connection.Close();
 
                         if (userRole != null)
                         {
-                            // Redirect based on user_role using switch-case
                             switch (userRole)
                             {
-                                case "administrator":
-                                    // Redirect to admin-specific functionality or form
-                                    AdminForm adminForm = new AdminForm();
+                                case "Admin":
+                                    AdminForm adminForm = new AdminForm(administratorName, userID);
+                                    this.Hide();
                                     adminForm.Show();
                                     break;
-                                case "instructor":
-                                    // Redirect to instructor-specific functionality or form
-                                    InstructorForm instructorForm = new InstructorForm();
+                                case "Instructor":
+                                    InstructorForm instructorForm = new InstructorForm(instructorName, userID);
+                                    this.Hide();
                                     instructorForm.Show();
                                     break;
-                                case "participant":
-                                    // Redirect to participant-specific functionality or form
-                                    ParticipantForm participantForm = new ParticipantForm();
+                                case "Participant":
+                                    ParticipantForm participantForm = new ParticipantForm(participantName, userID);
+                                    this.Hide();
                                     participantForm.Show();
                                     break;
                                 default:
@@ -106,15 +110,35 @@ namespace AttendanceV2
                         MessageBox.Show("Invalid email or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void Check_showPass_CheckedChanged_1(object sender, EventArgs e)
+        {
+            input_password.PasswordChar = Check_showPass.Checked ? '\0' : '*';
+        }
+    }
+    public static class DatabaseConnection
+    {
+        public static MySqlConnection GetConnection()
+        {
+            string server = "127.0.0.1";
+            string database = "attendancev2";
+            string uid = "root";
+            string password = "";
+
+            string connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
+
+            return new MySqlConnection(connectionString);
         }
     }
 }
 
 
 
-        
+

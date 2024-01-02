@@ -50,7 +50,7 @@
             // 
             this.label_login.AutoSize = true;
             this.label_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_login.Location = new System.Drawing.Point(469, 67);
+            this.label_login.Location = new System.Drawing.Point(469, 56);
             this.label_login.Name = "label_login";
             this.label_login.Size = new System.Drawing.Size(85, 32);
             this.label_login.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.label_email.AutoSize = true;
             this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_email.Location = new System.Drawing.Point(377, 150);
+            this.label_email.Location = new System.Drawing.Point(376, 130);
             this.label_email.Name = "label_email";
             this.label_email.Size = new System.Drawing.Size(60, 25);
             this.label_email.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.label_password.AutoSize = true;
             this.label_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_password.Location = new System.Drawing.Point(377, 232);
+            this.label_password.Location = new System.Drawing.Point(376, 212);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(98, 25);
             this.label_password.TabIndex = 3;
@@ -78,43 +78,43 @@
             // 
             // input_email
             // 
-            this.input_email.Location = new System.Drawing.Point(382, 187);
+            this.input_email.Location = new System.Drawing.Point(381, 167);
             this.input_email.Name = "input_email";
             this.input_email.Size = new System.Drawing.Size(261, 26);
             this.input_email.TabIndex = 1;
             // 
             // input_password
             // 
-            this.input_password.Location = new System.Drawing.Point(382, 269);
+            this.input_password.Location = new System.Drawing.Point(381, 249);
             this.input_password.Name = "input_password";
             this.input_password.Size = new System.Drawing.Size(261, 26);
             this.input_password.TabIndex = 2;
             // 
             // Btn_login
             // 
-            this.Btn_login.Location = new System.Drawing.Point(460, 375);
+            this.Btn_login.Location = new System.Drawing.Point(460, 366);
             this.Btn_login.Name = "Btn_login";
             this.Btn_login.Size = new System.Drawing.Size(105, 36);
             this.Btn_login.TabIndex = 4;
             this.Btn_login.Text = "Login";
             this.Btn_login.UseVisualStyleBackColor = true;
-            this.Btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.Btn_login.Click += new System.EventHandler(this.Btn_login_Click);
             // 
             // Check_showPass
             // 
             this.Check_showPass.AutoSize = true;
-            this.Check_showPass.Location = new System.Drawing.Point(382, 307);
+            this.Check_showPass.Location = new System.Drawing.Point(381, 287);
             this.Check_showPass.Name = "Check_showPass";
             this.Check_showPass.Size = new System.Drawing.Size(148, 24);
             this.Check_showPass.TabIndex = 3;
             this.Check_showPass.Text = "Show Password";
             this.Check_showPass.UseVisualStyleBackColor = true;
-            this.Check_showPass.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.Check_showPass.CheckedChanged += new System.EventHandler(this.Check_showPass_CheckedChanged_1);
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(714, 509);
             this.Controls.Add(this.Check_showPass);
             this.Controls.Add(this.Btn_login);
@@ -126,7 +126,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Event Attendance Manager";
             this.ResumeLayout(false);
             this.PerformLayout();
 
