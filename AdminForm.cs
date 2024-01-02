@@ -13,22 +13,22 @@ namespace AttendanceV2
 {
     public partial class AdminForm : Form
     {
-        private string instructorName;
+        private string administratorName;
 
-        private int instructorUserID;
+        private int administratorUserID;
 
-        public AdminForm()
+        public AdminForm(string name, int userID)
         {
             InitializeComponent();
-            // instructorName = name;
-            // instructorUserID = userID;
+            administratorName = name;
+            administratorUserID = userID;
             InitializeForm();
         }
 
         private void InitializeForm()
         {
             timer1.Start();
-            label_hello.Text = "Hello, " + instructorName + "!";
+            label_hello.Text = "Hello, " + administratorName + "!";
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace AttendanceV2
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
             }
+        }
+
+        private void Btn_createUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

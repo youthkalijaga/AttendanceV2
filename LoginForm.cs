@@ -64,6 +64,11 @@ namespace AttendanceV2
                         MySqlCommand instructorNameCmd = new MySqlCommand(instructorNameQuery, connection);
                         string instructorName = instructorNameCmd.ExecuteScalar()?.ToString();
 
+                        // Retrieve administrator's name based on UserID
+                        string administratorNameQuery = $"SELECT Name FROM Administrators WHERE UserID = '{userID}'";
+                        MySqlCommand administratorNameCmd = new MySqlCommand(administratorNameQuery, connection);
+                        string administratorName = administratorNameCmd.ExecuteScalar()?.ToString();
+
                         // Query user_role after successful login
                         string roleQuery = $"SELECT UserRole FROM users WHERE email = '{input_email.Text}'";
                         MySqlCommand roleCmd = new MySqlCommand(roleQuery, connection);
@@ -76,7 +81,7 @@ namespace AttendanceV2
                             switch (userRole)
                             {
                                 case "Admin":
-                                    AdminForm adminForm = new AdminForm();
+                                    AdminForm adminForm = new AdminForm(administratorName, userID);
                                     this.Hide();
                                     adminForm.Show();
                                     break;

@@ -36,13 +36,19 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Input_eventName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Btn_create = new System.Windows.Forms.Button();
+            this.Btn_createUser = new System.Windows.Forms.Button();
             this.label_currentEvent = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,12 +59,6 @@
             this.Selection_attendHistory = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.Grid_attendanceHistory = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -137,7 +137,7 @@
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.Btn_create);
+            this.tabPage1.Controls.Add(this.Btn_createUser);
             this.tabPage1.Controls.Add(this.label_currentEvent);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
@@ -147,12 +147,66 @@
             this.tabPage1.Text = "Create events";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(165, 298);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 25);
+            this.label7.TabIndex = 23;
+            this.label7.Text = ":";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(190, 297);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(231, 30);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(62, 298);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 25);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Role";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(62, 237);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 25);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Password";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(190, 236);
+            this.textBox2.MinimumSize = new System.Drawing.Size(550, 30);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(552, 28);
+            this.textBox2.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(190, 170);
+            this.textBox1.MinimumSize = new System.Drawing.Size(550, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(552, 28);
+            this.textBox1.TabIndex = 18;
+            // 
             // Input_eventName
             // 
             this.Input_eventName.Location = new System.Drawing.Point(190, 109);
             this.Input_eventName.MinimumSize = new System.Drawing.Size(550, 30);
             this.Input_eventName.Name = "Input_eventName";
-            this.Input_eventName.Size = new System.Drawing.Size(552, 30);
+            this.Input_eventName.Size = new System.Drawing.Size(552, 28);
             this.Input_eventName.TabIndex = 1;
             // 
             // label10
@@ -205,15 +259,16 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Name";
             // 
-            // Btn_create
+            // Btn_createUser
             // 
-            this.Btn_create.Location = new System.Drawing.Point(572, 367);
-            this.Btn_create.MinimumSize = new System.Drawing.Size(170, 50);
-            this.Btn_create.Name = "Btn_create";
-            this.Btn_create.Size = new System.Drawing.Size(170, 50);
-            this.Btn_create.TabIndex = 4;
-            this.Btn_create.Text = "Create user";
-            this.Btn_create.UseVisualStyleBackColor = true;
+            this.Btn_createUser.Location = new System.Drawing.Point(572, 367);
+            this.Btn_createUser.MinimumSize = new System.Drawing.Size(170, 50);
+            this.Btn_createUser.Name = "Btn_createUser";
+            this.Btn_createUser.Size = new System.Drawing.Size(170, 50);
+            this.Btn_createUser.TabIndex = 4;
+            this.Btn_createUser.Text = "Create user";
+            this.Btn_createUser.UseVisualStyleBackColor = true;
+            this.Btn_createUser.Click += new System.EventHandler(this.Btn_createUser_Click);
             // 
             // label_currentEvent
             // 
@@ -326,60 +381,6 @@
             this.Grid_attendanceHistory.Size = new System.Drawing.Size(815, 515);
             this.Grid_attendanceHistory.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(190, 170);
-            this.textBox1.MinimumSize = new System.Drawing.Size(550, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(552, 30);
-            this.textBox1.TabIndex = 18;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(190, 236);
-            this.textBox2.MinimumSize = new System.Drawing.Size(550, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(552, 30);
-            this.textBox2.TabIndex = 19;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(62, 237);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 25);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Password";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(62, 298);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 25);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Role";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 297);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 30);
-            this.comboBox1.TabIndex = 22;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(165, 298);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 25);
-            this.label7.TabIndex = 23;
-            this.label7.Text = ":";
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -421,7 +422,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button Btn_create;
+        private System.Windows.Forms.Button Btn_createUser;
         private System.Windows.Forms.Label label_currentEvent;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
