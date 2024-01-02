@@ -35,9 +35,9 @@
             this.label_hello = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.TimeEnd = new System.Windows.Forms.DateTimePicker();
-            this.TimeStart = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TimePicker_end = new System.Windows.Forms.DateTimePicker();
+            this.TimePicker_start = new System.Windows.Forms.DateTimePicker();
+            this.Input_eventName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -119,9 +119,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.TimeEnd);
-            this.tabPage1.Controls.Add(this.TimeStart);
-            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.TimePicker_end);
+            this.tabPage1.Controls.Add(this.TimePicker_start);
+            this.tabPage1.Controls.Add(this.Input_eventName);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
@@ -140,33 +140,33 @@
             this.tabPage1.Text = "Create events";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // TimeEnd
+            // TimePicker_end
             // 
-            this.TimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.TimeEnd.Location = new System.Drawing.Point(502, 169);
-            this.TimeEnd.MaximumSize = new System.Drawing.Size(4, 30);
-            this.TimeEnd.MinimumSize = new System.Drawing.Size(240, 24);
-            this.TimeEnd.Name = "TimeEnd";
-            this.TimeEnd.Size = new System.Drawing.Size(240, 28);
-            this.TimeEnd.TabIndex = 19;
+            this.TimePicker_end.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.TimePicker_end.Location = new System.Drawing.Point(502, 169);
+            this.TimePicker_end.MaximumSize = new System.Drawing.Size(4, 30);
+            this.TimePicker_end.MinimumSize = new System.Drawing.Size(240, 24);
+            this.TimePicker_end.Name = "TimePicker_end";
+            this.TimePicker_end.Size = new System.Drawing.Size(240, 28);
+            this.TimePicker_end.TabIndex = 19;
             // 
-            // TimeStart
+            // TimePicker_start
             // 
-            this.TimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.TimeStart.Location = new System.Drawing.Point(190, 169);
-            this.TimeStart.MaximumSize = new System.Drawing.Size(4, 30);
-            this.TimeStart.MinimumSize = new System.Drawing.Size(240, 24);
-            this.TimeStart.Name = "TimeStart";
-            this.TimeStart.Size = new System.Drawing.Size(240, 28);
-            this.TimeStart.TabIndex = 18;
+            this.TimePicker_start.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.TimePicker_start.Location = new System.Drawing.Point(190, 169);
+            this.TimePicker_start.MaximumSize = new System.Drawing.Size(4, 30);
+            this.TimePicker_start.MinimumSize = new System.Drawing.Size(240, 24);
+            this.TimePicker_start.Name = "TimePicker_start";
+            this.TimePicker_start.Size = new System.Drawing.Size(240, 28);
+            this.TimePicker_start.TabIndex = 18;
             // 
-            // textBox4
+            // Input_eventName
             // 
-            this.textBox4.Location = new System.Drawing.Point(190, 109);
-            this.textBox4.MinimumSize = new System.Drawing.Size(550, 30);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(552, 30);
-            this.textBox4.TabIndex = 1;
+            this.Input_eventName.Location = new System.Drawing.Point(190, 109);
+            this.Input_eventName.MinimumSize = new System.Drawing.Size(550, 30);
+            this.Input_eventName.Name = "Input_eventName";
+            this.Input_eventName.Size = new System.Drawing.Size(552, 28);
+            this.Input_eventName.TabIndex = 1;
             // 
             // label10
             // 
@@ -252,9 +252,9 @@
             // Btn_create
             // 
             this.Btn_create.Location = new System.Drawing.Point(572, 271);
-            this.Btn_create.MinimumSize = new System.Drawing.Size(170, 35);
+            this.Btn_create.MinimumSize = new System.Drawing.Size(170, 45);
             this.Btn_create.Name = "Btn_create";
-            this.Btn_create.Size = new System.Drawing.Size(170, 35);
+            this.Btn_create.Size = new System.Drawing.Size(170, 45);
             this.Btn_create.TabIndex = 4;
             this.Btn_create.Text = "Create event";
             this.Btn_create.UseVisualStyleBackColor = true;
@@ -396,14 +396,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Input_eventName;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DateTimePicker TimeStart;
-        private System.Windows.Forms.DateTimePicker TimeEnd;
+        private System.Windows.Forms.DateTimePicker TimePicker_start;
+        private System.Windows.Forms.DateTimePicker TimePicker_end;
     }
 }

@@ -38,8 +38,8 @@ namespace AttendanceV2
 
                     // Retrieve user details including user_role and UserID
                     string query = $"SELECT COUNT(*), UserID FROM users WHERE email = '{input_email.Text}' AND password = '{input_password.Text}'";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
 
                     int count = 0;
                     int userID = 0;
