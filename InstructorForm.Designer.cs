@@ -50,18 +50,13 @@
             this.label_currentEvent = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Grid_eventsList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).BeginInit();
             this.SuspendLayout();
             // 
             // label_currentTime
@@ -108,7 +103,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(23, 107);
@@ -165,7 +159,7 @@
             this.Input_eventName.Location = new System.Drawing.Point(190, 109);
             this.Input_eventName.MinimumSize = new System.Drawing.Size(550, 30);
             this.Input_eventName.Name = "Input_eventName";
-            this.Input_eventName.Size = new System.Drawing.Size(552, 28);
+            this.Input_eventName.Size = new System.Drawing.Size(552, 30);
             this.Input_eventName.TabIndex = 1;
             // 
             // label10
@@ -273,7 +267,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.Grid_eventsList);
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -293,48 +287,17 @@
             this.button1.Text = "Export";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // Grid_eventsList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 56);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(815, 515);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(815, 574);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Participants";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(724, 12);
-            this.button2.MinimumSize = new System.Drawing.Size(80, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 35);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Export";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 56);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(815, 515);
-            this.dataGridView2.TabIndex = 17;
+            this.Grid_eventsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_eventsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Grid_eventsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_eventsList.Location = new System.Drawing.Point(0, 56);
+            this.Grid_eventsList.Name = "Grid_eventsList";
+            this.Grid_eventsList.RowHeadersWidth = 62;
+            this.Grid_eventsList.RowTemplate.Height = 28;
+            this.Grid_eventsList.Size = new System.Drawing.Size(815, 515);
+            this.Grid_eventsList.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -343,7 +306,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(815, 574);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Attendance history";
+            this.tabPage4.Text = "Event attendance history";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // timer1
@@ -368,9 +331,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_eventsList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,12 +358,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox Input_eventName;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView Grid_eventsList;
         private System.Windows.Forms.DateTimePicker TimePicker_start;
         private System.Windows.Forms.DateTimePicker TimePicker_end;
     }

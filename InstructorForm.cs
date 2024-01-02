@@ -25,6 +25,7 @@ namespace AttendanceV2
             instructorName = name;
             instructorUserID = GetInstructorID(userID);
             InitializeForm();
+            LoadDataToGrid_eventsList();
         }
         private void InstructorForm_Load(object sender, EventArgs e)
         {
@@ -141,5 +142,31 @@ namespace AttendanceV2
             }
         }
 
+        private void LoadDataToGrid_eventsList()
+        {
+            using (MySqlConnection connection = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = $"SELECT e.Name AS 'Event Name', e.StartDateTime AS 'Start Date', e.EndDateTime AS 'End Date' FROM Events e WHERE InstructorID = {instructorUserID}";
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                    DataTable dataTable = new DataTable();
+
+                    adapter.Fill(dataTable);
+
+                    Grid_eventsList.DataSource = dataTable;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
