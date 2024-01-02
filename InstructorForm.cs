@@ -121,6 +121,7 @@ namespace AttendanceV2
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Event created successfully!");
+                            Input_eventName.Text = "";
                         }
                         else
                         {

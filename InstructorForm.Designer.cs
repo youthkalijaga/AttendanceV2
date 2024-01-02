@@ -252,9 +252,9 @@
             // Btn_create
             // 
             this.Btn_create.Location = new System.Drawing.Point(572, 271);
-            this.Btn_create.MinimumSize = new System.Drawing.Size(170, 45);
+            this.Btn_create.MinimumSize = new System.Drawing.Size(170, 50);
             this.Btn_create.Name = "Btn_create";
-            this.Btn_create.Size = new System.Drawing.Size(170, 45);
+            this.Btn_create.Size = new System.Drawing.Size(170, 50);
             this.Btn_create.TabIndex = 4;
             this.Btn_create.Text = "Create event";
             this.Btn_create.UseVisualStyleBackColor = true;
