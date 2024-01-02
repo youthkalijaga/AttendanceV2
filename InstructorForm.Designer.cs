@@ -52,12 +52,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Grid_eventsList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Grid_attendanceHistory = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Selection_attendHistory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Selection_attendHistory = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Grid_attendanceHistory = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -166,7 +166,7 @@
             this.Input_eventName.Location = new System.Drawing.Point(190, 109);
             this.Input_eventName.MinimumSize = new System.Drawing.Size(550, 30);
             this.Input_eventName.Name = "Input_eventName";
-            this.Input_eventName.Size = new System.Drawing.Size(552, 30);
+            this.Input_eventName.Size = new System.Drawing.Size(552, 28);
             this.Input_eventName.TabIndex = 1;
             // 
             // label10
@@ -321,42 +321,6 @@
             this.tabPage4.Text = "Event attendance history";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Grid_attendanceHistory
-            // 
-            this.Grid_attendanceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Grid_attendanceHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Grid_attendanceHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_attendanceHistory.Location = new System.Drawing.Point(0, 58);
-            this.Grid_attendanceHistory.Name = "Grid_attendanceHistory";
-            this.Grid_attendanceHistory.RowHeadersWidth = 62;
-            this.Grid_attendanceHistory.RowTemplate.Height = 28;
-            this.Grid_attendanceHistory.Size = new System.Drawing.Size(815, 515);
-            this.Grid_attendanceHistory.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(724, 12);
-            this.button2.MinimumSize = new System.Drawing.Size(80, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 35);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Export";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Selection_attendHistory
-            // 
-            this.Selection_attendHistory.FormattingEnabled = true;
-            this.Selection_attendHistory.Location = new System.Drawing.Point(207, 12);
-            this.Selection_attendHistory.Name = "Selection_attendHistory";
-            this.Selection_attendHistory.Size = new System.Drawing.Size(231, 30);
-            this.Selection_attendHistory.TabIndex = 18;
-            this.Selection_attendHistory.SelectedIndexChanged += new System.EventHandler(this.Selection_attendHistory_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -376,6 +340,42 @@
             this.label2.Size = new System.Drawing.Size(147, 25);
             this.label2.TabIndex = 19;
             this.label2.Text = "Select an event";
+            // 
+            // Selection_attendHistory
+            // 
+            this.Selection_attendHistory.FormattingEnabled = true;
+            this.Selection_attendHistory.Location = new System.Drawing.Point(207, 12);
+            this.Selection_attendHistory.Name = "Selection_attendHistory";
+            this.Selection_attendHistory.Size = new System.Drawing.Size(231, 30);
+            this.Selection_attendHistory.TabIndex = 18;
+            this.Selection_attendHistory.SelectedIndexChanged += new System.EventHandler(this.Selection_attendHistory_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(724, 12);
+            this.button2.MinimumSize = new System.Drawing.Size(80, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 35);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Export";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Grid_attendanceHistory
+            // 
+            this.Grid_attendanceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_attendanceHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Grid_attendanceHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_attendanceHistory.Location = new System.Drawing.Point(0, 58);
+            this.Grid_attendanceHistory.Name = "Grid_attendanceHistory";
+            this.Grid_attendanceHistory.RowHeadersWidth = 62;
+            this.Grid_attendanceHistory.RowTemplate.Height = 28;
+            this.Grid_attendanceHistory.Size = new System.Drawing.Size(815, 515);
+            this.Grid_attendanceHistory.TabIndex = 1;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // InstructorForm
             // 
