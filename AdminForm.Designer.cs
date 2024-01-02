@@ -37,12 +37,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxUserRole = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Input_eventName = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -126,12 +126,12 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.comboBoxUserRole);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.Input_eventName);
+            this.tabPage1.Controls.Add(this.textBoxPassword);
+            this.tabPage1.Controls.Add(this.textBoxEmail);
+            this.tabPage1.Controls.Add(this.textBoxName);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
@@ -157,13 +157,13 @@
             this.label7.TabIndex = 23;
             this.label7.Text = ":";
             // 
-            // comboBox1
+            // comboBoxUserRole
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 297);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 30);
-            this.comboBox1.TabIndex = 22;
+            this.comboBoxUserRole.FormattingEnabled = true;
+            this.comboBoxUserRole.Location = new System.Drawing.Point(190, 297);
+            this.comboBoxUserRole.Name = "comboBoxUserRole";
+            this.comboBoxUserRole.Size = new System.Drawing.Size(231, 30);
+            this.comboBoxUserRole.TabIndex = 22;
             // 
             // label6
             // 
@@ -185,29 +185,29 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "Password";
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(190, 236);
-            this.textBox2.MinimumSize = new System.Drawing.Size(550, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(552, 28);
-            this.textBox2.TabIndex = 19;
+            this.textBoxPassword.Location = new System.Drawing.Point(190, 236);
+            this.textBoxPassword.MinimumSize = new System.Drawing.Size(550, 30);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(552, 28);
+            this.textBoxPassword.TabIndex = 19;
             // 
-            // textBox1
+            // textBoxEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(190, 170);
-            this.textBox1.MinimumSize = new System.Drawing.Size(550, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(552, 28);
-            this.textBox1.TabIndex = 18;
+            this.textBoxEmail.Location = new System.Drawing.Point(190, 170);
+            this.textBoxEmail.MinimumSize = new System.Drawing.Size(550, 30);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(552, 28);
+            this.textBoxEmail.TabIndex = 18;
             // 
-            // Input_eventName
+            // textBoxName
             // 
-            this.Input_eventName.Location = new System.Drawing.Point(190, 109);
-            this.Input_eventName.MinimumSize = new System.Drawing.Size(550, 30);
-            this.Input_eventName.Name = "Input_eventName";
-            this.Input_eventName.Size = new System.Drawing.Size(552, 28);
-            this.Input_eventName.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(190, 109);
+            this.textBoxName.MinimumSize = new System.Drawing.Size(550, 30);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(552, 28);
+            this.textBoxName.TabIndex = 1;
             // 
             // label10
             // 
@@ -416,7 +416,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox Input_eventName;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -434,10 +434,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView Grid_attendanceHistory;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxUserRole;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxEmail;
     }
 }
