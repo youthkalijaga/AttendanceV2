@@ -46,8 +46,16 @@ namespace AttendanceV2
 
                     while (reader.Read())
                     {
-                        count = Convert.ToInt32(reader[0]);
-                        userID = Convert.ToInt32(reader[1]);
+                        if (reader.FieldCount >= 2 && reader[0] != DBNull.Value && reader[1] != DBNull.Value)
+                        {
+                            count = Convert.ToInt32(reader[0]);
+                            userID = Convert.ToInt32(reader[1]);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid data returned from the database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Handle the situation where the query result doesn't contain valid data
+                        }
                     }
 
                     reader.Close();
